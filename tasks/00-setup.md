@@ -4,7 +4,7 @@
 
 ## 1. Hisob va dasturlar
 
-1. https://github.com da hisob oching (universitet email'ingiz bilan).
+1. https://github.com da account oching
 2. Git'ni o'rnating: https://git-scm.com
 3. VS Code'ni o'rnating: https://code.visualstudio.com
 4. Terminalda ismingizni sozlang:
