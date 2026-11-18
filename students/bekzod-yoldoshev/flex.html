@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #1f3c88;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #2ec4b6;
+        }
+
+        /* HERO */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 80px 10%;
+        }
+
+        .hero-img {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            object-fit: cover;
+            outline: 4px dashed #2ec4b6;
+            outline-offset: 8px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            color: #1f3c88;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h2 {
+            font-size: 23px;
+            color: #2ec4b6;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1f3c88;
+            color: white;
+            padding: 13px 30px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #2ec4b6;
+            transform: translateY(-3px);
+        }
+
+        /* SKILLS */
+        .skills {
+            padding: 40px 8% 70px;
+            text-align: center;
+        }
+
+        .skills h2 {
+            font-size: 32px;
+            color: #1f3c88;
+            margin-bottom: 35px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            border-top: 6px solid #2ec4b6;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            font-size: 23px;
+            color: #1f3c88;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: #1f3c88;
+            color: white;
+        }
+
+        .footer a {
+            color: #2ec4b6;
+            text-decoration: none;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 7%;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="#" class="logo">Bekzod.dev</a>
+
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Bosh sahifa</a></li>
+                <li><a href="#skills">Ko'nikmalar</a></li>
+                <li><a href="#contact">Bog'lanish</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+        <section class="hero">
+
+            <img
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500"
+                alt="Profil rasmi"
+                class="hero-img"
+            >
+
+            <div class="hero-text">
+                <h2>Salom, men Bekzod!</h2>
+                <h1>Frontend Developer</h1>
+
+                <p>
+                    Men web dasturlashga qiziqaman.
+                    Hozirda HTML, CSS va JavaScript
+                    texnologiyalarini o'rganyapman.
+                    Kelajakda professional dasturchi
+                    bo'lishni maqsad qilganman.
+                </p>
+
+                <a href="#contact" class="btn">
+                    Men bilan bog'lanish
+                </a>
+            </div>
+
+        </section>
+
+        <!-- SKILLS -->
+        <section class="skills" id="skills">
+
+            <h2>Mening ko'nikmalarim</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>HTML</h3>
+                    <p>
+                        Web sahifalarning tuzilishini
+                        yaratish va semantik teglar bilan ishlash.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>CSS</h3>
+                    <p>
+                        Sahifalarni bezash, Flexbox,
+                        Grid va responsive dizayn.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>JavaScript</h3>
+                    <p>
+                        Web sahifalarga interaktivlik
+                        va dinamik imkoniyatlar qo'shish.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Git & GitHub</h3>
+                    <p>
+                        Kodlarni boshqarish,
+                        saqlash va loyihalarni joylash.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <p>© 2026 Bekzod. Barcha huquqlar himoyalangan.</p>
+
+        <a href="mailto:bekzod@example.com">
+            bekzod@example.com
+        </a>
+    </footer>
+
+</body>
+</html>

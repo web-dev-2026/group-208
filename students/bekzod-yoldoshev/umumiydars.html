@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitob olami — O‘zbek adabiyotining eng sara asarlari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-dark: #15603e;
+      --green-darker: #11432d;
+      --green-footer: #153526;
+      --green-soft: #e6f2ec;
+      --beige-bg: #f6efe0;
+      --beige-card: #fcf7eb;
+      --beige-border: #ece2cc;
+      --yellow-accent: #f3bc42;
+      --yellow-soft: #fdf5df;
+      --orange-accent: #c85228;
+      --text-dark: #1b221e;
+      --text-muted: #5a635e;
+      --border-light: #e5e7eb;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background-color: var(--white);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header / Navbar */
+    header {
+      background-color: var(--white);
+      border-bottom: 1px solid #f0ece1;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--text-dark);
+    }
+
+    .logo-icon {
+      width: 34px;
+      height: 34px;
+      background-color: var(--green-dark);
+      color: var(--white);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-dark);
+    }
+
+    .nav-email {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--orange-accent);
+    }
+
+    .nav-email:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--beige-bg);
+      padding: 72px 0 84px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      background-color: var(--white);
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      margin-bottom: 22px;
+    }
+
+    .hero-title {
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .highlight-box {
+      background-color: var(--yellow-accent);
+      color: var(--text-dark);
+      padding: 0 10px 3px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--green-dark);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--green-darker);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--green-dark);
+      border-color: var(--green-dark);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(21, 96, 62, 0.06);
+    }
+
+    /* Hero Book Showcase */
+    .books-showcase {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .book-cover {
+      border-radius: 8px;
+      padding: 18px 16px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.16);
+      position: relative;
+      transition: transform 0.25s ease;
+    }
+
+    .book-cover:hover {
+      transform: translateY(-6px);
+    }
+
+    .book-side {
+      width: 138px;
+      height: 206px;
+    }
+
+    .book-center {
+      width: 176px;
+      height: 256px;
+      padding: 22px 20px;
+      box-shadow: 0 22px 42px rgba(21, 96, 62, 0.28);
+    }
+
+    .book-terracotta {
+      background: linear-gradient(145deg, #c65336, #b54428);
+    }
+
+    .book-green {
+      background: linear-gradient(145deg, #166a44, #115335);
+    }
+
+    .book-purple {
+      background: linear-gradient(145deg, #6d3a8c, #592c75);
+    }
+
+    .book-top-decor {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .book-line {
+      height: 3px;
+      width: 34px;
+      border-radius: 2px;
+    }
+
+    .book-center .book-line {
+      width: 44px;
+      height: 4px;
+    }
+
+    .book-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+    }
+
+    .book-center .book-circle {
+      width: 32px;
+      height: 32px;
+    }
+
+    .book-title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.25;
+      margin-bottom: auto;
+    }
+
+    .book-center .book-title {
+      font-size: 19px;
+    }
+
+    .book-author {
+      font-size: 10.5px;
+      opacity: 0.85;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      padding-top: 8px;
+    }
+
+    .book-center .book-author {
+      font-size: 12px;
+      padding-top: 10px;
+    }
+
+    /* Section Headings */
+    .section-eyebrow {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange-accent);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-dark);
+      margin-bottom: 32px;
+    }
+
+    /* Top-5 Section */
+    .top5-section {
+      padding: 80px 0 88px;
+      background-color: var(--white);
+    }
+
+    .top5-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .top5-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-radius: 14px;
+      border: 1.5px solid var(--border-light);
+      background-color: var(--white);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .top5-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .top5-item.featured {
+      background-color: var(--yellow-soft);
+      border-color: #f3d285;
+    }
+
+    .top5-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .rank-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: var(--green-dark);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mini-book {
+      width: 46px;
+      height: 64px;
+      border-radius: 5px;
+      padding: 6px 5px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-shrink: 0;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.14);
+    }
+
+    .mini-book-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mini-line {
+      width: 12px;
+      height: 2px;
+      border-radius: 1px;
+    }
+
+    .mini-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+
+    .mini-title {
+      font-size: 6px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .mini-author {
+      font-size: 4.5px;
+      opacity: 0.85;
+      border-top: 0.5px solid rgba(255, 255, 255, 0.3);
+      padding-top: 2px;
+    }
+
+    .book-blue {
+      background: linear-gradient(145deg, #27538a, #1d406b);
+    }
+
+    .book-ochre {
+      background: linear-gradient(145deg, #b88a2e, #987020);
+    }
+
+    .book-info h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+
+    .book-info p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .book-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green-dark);
+      white-space: nowrap;
+    }
+
+    /* Delivery Pricing Section */
+    .delivery-section {
+      background-color: var(--beige-bg);
+      padding: 80px 0 88px;
+    }
+
+    .table-wrapper {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      background-color: var(--white);
+      border: 1px solid var(--beige-border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    thead th {
+      background-color: var(--green-dark);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 16px 24px;
+    }
+
+    tbody td {
+      padding: 15px 24px;
+      font-size: 14.5px;
+      border-bottom: 1px solid #eceae2;
+      color: var(--text-dark);
+    }
+
+    .method-cell {
+      background-color: var(--green-soft);
+      font-weight: 700;
+      color: var(--green-dark);
+      width: 26%;
+      border-right: 1px solid #d9e8e0;
+    }
+
+    .sub-label {
+      color: var(--text-muted);
+      font-weight: 500;
+      width: 26%;
+    }
+
+    tfoot td {
+      background-color: var(--yellow-accent);
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 14.5px;
+      padding: 16px 24px;
+    }
+
+    /* Trailer & Audiobook Section */
+    .media-section {
+      background-color: var(--white);
+      padding: 84px 0;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 52px;
+    }
+
+    .video-card {
+      background-color: #164f36;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 16 / 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 16px 36px rgba(21, 96, 62, 0.16);
+    }
+
+    .video-visual {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .video-sun {
+      position: absolute;
+      top: 26px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--yellow-accent);
+    }
+
+    .open-book-graphic {
+      display: flex;
+      gap: 4px;
+      position: relative;
+    }
+
+    .book-page {
+      width: 82px;
+      height: 108px;
+      background-color: #f6efe0;
+      border-radius: 4px;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .page-line {
+      height: 3px;
+      background-color: #b7b0a2;
+      border-radius: 2px;
+      width: 100%;
+    }
+
+    .page-line.short {
+      width: 72%;
+    }
+
+    .spinner-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(255, 255, 255, 0.25);
+      border-top-color: var(--white);
+      border-radius: 50%;
+    }
+
+    .video-controls {
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+      padding: 14px 18px 12px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .controls-left, .controls-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.35);
+      border-radius: 2px;
+    }
+
+    .video-caption {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .audiobook-content h2 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .audiobook-content p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .audio-player-mock {
+      background-color: #f1f3f4;
+      border-radius: 999px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      max-width: 460px;
+    }
+
+    .audio-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #202124;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .audio-time {
+      font-size: 13px;
+      color: #3c4043;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .audio-track {
+      flex: 1;
+      height: 4px;
+      background-color: #dadce0;
+      border-radius: 2px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .audio-track-fill {
+      width: 0%;
+      height: 100%;
+      background-color: var(--green-dark);
+      border-radius: 2px;
+    }
+
+    .feature-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .feature-pill {
+      background-color: var(--green-soft);
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 999px;
+    }
+
+    /* Order Form Section */
+    .order-section {
+      background-color: var(--beige-bg);
+      padding: 84px 0 96px;
+    }
+
+    .order-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: var(--white);
+      border-radius: 18px;
+      padding: 40px 44px 44px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+      border-top: 6px solid var(--green-dark);
+    }
+
+    .order-card h2 {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 26px;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .form-row-3 {
+      display: grid;
+      grid-template-columns: 1.6fr 0.8fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .form-control {
+      width: 100%;
+      height: 44px;
+      padding: 0 14px;
+      border: 1.5px solid #dcdfe4;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text-dark);
+      background-color: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--green-dark);
+      box-shadow: 0 0 0 3px rgba(21, 96, 62, 0.12);
+    }
+
+    textarea.form-control {
+      height: 86px;
+      padding: 12px 14px;
+      resize: vertical;
+    }
+
+    .radio-check-group {
+      margin-bottom: 18px;
+    }
+
+    .group-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .options-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-bottom: 14px;
+    }
+
+    .option-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+
+    .option-item input {
+      accent-color: #1a73e8;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      gap: 12px;
+    }
+
+    .btn-reset {
+      background-color: var(--beige-card);
+      color: var(--text-dark);
+      border: 1.5px solid #e2d7be;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-reset:hover {
+      background-color: #f2e8d1;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--green-footer);
+      color: var(--white);
+      padding-top: 64px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 0.8fr;
+      gap: 40px;
+      padding-bottom: 52px;
+    }
+
+    .footer-brand .logo {
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .footer-brand .logo-icon {
+      background-color: #218054;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      color: #a9c1b5;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col li, .footer-col a {
+      font-size: 14px;
+      color: #b7ccc1;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px 0;
+    }
+
+    .footer-bottom-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #96b0a3;
+    }
+
+    .back-to-top {
+      color: var(--yellow-accent);
+      font-weight: 600;
+    }
+
+    .back-to-top:hover {
+      text-decoration: underline;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--green-dark);
+      color: var(--white);
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .media-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .hero-title {
+        font-size: 38px;
+      }
+
+      .books-showcase {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 12px 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-links, .nav-email {
+        display: none;
+      }
+
+      .form-row-2,
+      .form-row-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .order-card {
+        padding: 28px 22px;
+      }
+
+      .top5-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .book-price {
+        align-self: flex-end;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- Header -->
+  <header>
+    <div class="container navbar">
+      <div class="nav-left">
+        <a href="#top" class="logo">
+          <span class="logo-icon">K</span>
+          <span>Kitob olami</span>
+        </a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#top5">Top-5</a></li>
+            <li><a href="#yetkazish">Yetkazish</a></li>
+            <li><a href="#treyler">Treyler</a></li>
+            <li><a href="#buyurtma">Buyurtma</a></li>
+          </ul>
+        </nav>
+      </div>
+      <a href="mailto:salom@kitobolami.uz" class="nav-email">salom@kitobolami.uz</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge-pill">Yangi kelganlar &bull; 40+ kitob</span>
+        <h1 class="hero-title">
+          O‘zbek<br>
+          adabiyotining <span class="highlight-box">eng</span><br>
+          <span class="highlight-box">sara</span> asarlari
+        </h1>
+        <p class="hero-subtitle">
+          Qog‘oz kitoblar va audiokitoblar. Toshkent bo‘ylab ertasiga yetkazib beramiz.
+        </p>
+        <div class="hero-actions">
+          <a href="#buyurtma" class="btn btn-primary">Buyurtma berish</a>
+          <a href="#top5" class="btn btn-outline">Top-5 ni ko‘rish</a>
+        </div>
+      </div>
+
+      <!-- 3 Featured Book Covers -->
+      <div class="books-showcase">
+        <div class="book-cover book-side book-terracotta">
+          <div class="book-top-decor">
+            <span class="book-line" style="background: #f5b999;"></span>
+            <span class="book-circle" style="background: #f5b999;"></span>
+          </div>
+          <div class="book-title">Kecha va kunduz</div>
+          <div class="book-author">Cho‘lpon</div>
+        </div>
+
+        <div class="book-cover book-center book-green">
+          <div class="book-top-decor">
+            <span class="book-line" style="background: #f3bc42;"></span>
+            <span class="book-circle" style="background: #f3bc42;"></span>
+          </div>
+          <div class="book-title">O‘tkan kunlar</div>
+          <div class="book-author">Abdulla Qodiriy</div>
+        </div>
+
+        <div class="book-cover book-side book-purple">
+          <div class="book-top-decor">
+            <span class="book-line" style="background: #d89bc5;"></span>
+            <span class="book-circle" style="background: #d89bc5;"></span>
+          </div>
+          <div class="book-title">Dunyoning ishlari</div>
+          <div class="book-author">O‘tkir Hoshimov</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top-5 Books Section -->
+  <section class="top5-section" id="top5">
+    <div class="container">
+      <div class="section-eyebrow">Reyting</div>
+      <h2 class="section-title">Haftaning top-5 kitobi</h2>
+
+      <div class="top5-list">
+        <!-- Item 1 -->
+        <div class="top5-item featured">
+          <div class="top5-left">
+            <span class="rank-badge">1</span>
+            <div class="mini-book book-green">
+              <div class="mini-book-top">
+                <span class="mini-line" style="background:#f3bc42;"></span>
+                <span class="mini-dot" style="background:#f3bc42;"></span>
+              </div>
+              <div class="mini-title">O‘tkan kunlar</div>
+              <div class="mini-author">Abdulla Qodiriy</div>
+            </div>
+            <div class="book-info">
+              <h3>O‘tkan kunlar</h3>
+              <p>Abdulla Qodiriy</p>
+            </div>
+          </div>
+          <div class="book-price">65 000 so‘m</div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="top5-item">
+          <div class="top5-left">
+            <span class="rank-badge">2</span>
+            <div class="mini-book book-terracotta">
+              <div class="mini-book-top">
+                <span class="mini-line" style="background:#f5b999;"></span>
+                <span class="mini-dot" style="background:#f5b999;"></span>
+              </div>
+              <div class="mini-title">Kecha va kunduz</div>
+              <div class="mini-author">Cho‘lpon</div>
+            </div>
+            <div class="book-info">
+              <h3>Kecha va kunduz</h3>
+              <p>Cho‘lpon</p>
+            </div>
+          </div>
+          <div class="book-price">58 000 so‘m</div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="top5-item">
+          <div class="top5-left">
+            <span class="rank-badge">3</span>
+            <div class="mini-book book-purple">
+              <div class="mini-book-top">
+                <span class="mini-line" style="background:#d89bc5;"></span>
+                <span class="mini-dot" style="background:#d89bc5;"></span>
+              </div>
+              <div class="mini-title">Dunyoning ishlari</div>
+              <div class="mini-author">O‘tkir Hoshimov</div>
+            </div>
+            <div class="book-info">
+              <h3>Dunyoning ishlari</h3>
+              <p>O‘tkir Hoshimov</p>
+            </div>
+          </div>
+          <div class="book-price">49 000 so‘m</div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="top5-item">
+          <div class="top5-left">
+            <span class="rank-badge">4</span>
+            <div class="mini-book book-blue">
+              <div class="mini-book-top">
+                <span class="mini-line" style="background:#8fbce6;"></span>
+                <span class="mini-dot" style="background:#8fbce6;"></span>
+              </div>
+              <div class="mini-title">Sariq devni minib</div>
+              <div class="mini-author">Xudoyberdi To‘xtaboyev</div>
+            </div>
+            <div class="book-info">
+              <h3>Sariq devni minib</h3>
+              <p>Xudoyberdi To‘xtaboyev</p>
+            </div>
+          </div>
+          <div class="book-price">42 000 so‘m</div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="top5-item">
+          <div class="top5-left">
+            <span class="rank-badge">5</span>
+            <div class="mini-book book-ochre">
+              <div class="mini-book-top">
+                <span class="mini-line" style="background:#f5df9c;"></span>
+                <span class="mini-dot" style="background:#f5df9c;"></span>
+              </div>
+              <div class="mini-title">Ufq</div>
+              <div class="mini-author">Said Ahmad</div>
+            </div>
+            <div class="book-info">
+              <h3>Ufq</h3>
+              <p>Said Ahmad</p>
+            </div>
+          </div>
+          <div class="book-price">55 000 so‘m</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Delivery Section -->
+  <section class="delivery-section" id="yetkazish">
+    <div class="container">
+      <div class="section-eyebrow">Yetkazib berish</div>
+      <h2 class="section-title">Narx va muddatlar</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2">Usul</th>
+              <th>Toshkent</th>
+              <th>Viloyatlar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2" class="method-cell">Kuryer</td>
+              <td class="sub-label">Narx</td>
+              <td>20 000 so‘m</td>
+              <td>35 000 so‘m</td>
+            </tr>
+            <tr>
+              <td class="sub-label">Muddat</td>
+              <td>1 kun</td>
+              <td>3 kun</td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="method-cell">Pochta</td>
+              <td class="sub-label">Narx</td>
+              <td>10 000 so‘m</td>
+              <td>15 000 so‘m</td>
+            </tr>
+            <tr>
+              <td class="sub-label">Muddat</td>
+              <td>3 kun</td>
+              <td>7 kun</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">200 000 so‘mdan ortiq buyurtma</td>
+              <td colspan="2">Bepul yetkazib berish</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trailer & Audiobook Section -->
+  <section class="media-section" id="treyler">
+    <div class="container media-grid">
+      <div>
+        <div class="video-card">
+          <div class="video-visual">
+            <div class="video-sun"></div>
+            <div class="open-book-graphic">
+              <div class="book-page">
+                <div class="page-line"></div>
+                <div class="page-line"></div>
+                <div class="page-line short"></div>
+                <div class="page-line"></div>
+                <div class="page-line short"></div>
+              </div>
+              <div class="book-page">
+                <div class="page-line"></div>
+                <div class="page-line short"></div>
+                <div class="page-line"></div>
+                <div class="page-line"></div>
+                <div class="page-line short"></div>
+              </div>
+              <div class="spinner-ring"></div>
+            </div>
+          </div>
+          <div class="video-controls">
+            <div class="controls-row">
+              <div class="controls-left">
+                <span>&#9654;</span>
+                <span>0:00</span>
+              </div>
+              <div class="controls-right">
+                <span>&#128266;</span>
+                <span>&#x26F6;</span>
+                <span>&#8942;</span>
+              </div>
+            </div>
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+        <p class="video-caption">&laquo;O‘tkan kunlar&raquo; kitob treyleri</p>
+      </div>
+
+      <div class="audiobook-content">
+        <div class="section-eyebrow">Audiokitob</div>
+        <h2>Yo‘lda ham tinglang</h2>
+        <p>Har bir audiokitobning birinchi bobi bepul. Hoziroq tinglab ko‘ring:</p>
+
+        <div class="audio-player-mock">
+          <button type="button" class="audio-btn" id="playAudioBtn" aria-label="Tinglash">&#9654;</button>
+          <span class="audio-time" id="audioTime">0:00 / 0:00</span>
+          <div class="audio-track">
+            <div class="audio-track-fill" id="audioFill"></div>
+          </div>
+          <button type="button" class="audio-btn" aria-label="Ovoz">&#128266;</button>
+          <button type="button" class="audio-btn" aria-label="Qo‘shimcha">&#8942;</button>
+        </div>
+
+        <div class="feature-pills">
+          <span class="feature-pill">Professional diktorlar</span>
+          <span class="feature-pill">Telefon va kompyuterda</span>
+          <span class="feature-pill">Internetsiz tinglash</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Form Section -->
+  <section class="order-section" id="buyurtma">
+    <div class="container">
+      <div class="order-card">
+        <h2>Buyurtma berish</h2>
+        <form id="orderForm">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="customerName">Ism</label>
+              <input type="text" id="customerName" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="customerPhone">Telefon</label>
+              <input type="tel" id="customerPhone" class="form-control" placeholder="+998" required />
+            </div>
+          </div>
+
+          <div class="form-row-3">
+            <div class="form-group">
+              <label for="bookSelect">Kitob</label>
+              <select id="bookSelect" class="form-control">
+                <option value="O‘tkan kunlar">O‘tkan kunlar</option>
+                <option value="Kecha va kunduz">Kecha va kunduz</option>
+                <option value="Dunyoning ishlari">Dunyoning ishlari</option>
+                <option value="Sariq devni minib">Sariq devni minib</option>
+                <option value="Ufq">Ufq</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="bookQty">Soni</label>
+              <input type="number" id="bookQty" class="form-control" value="1" min="1" max="50" />
+            </div>
+            <div class="form-group">
+              <label for="deliveryDate">Sana</label>
+              <input type="date" id="deliveryDate" class="form-control" />
+            </div>
+          </div>
+
+          <div class="radio-check-group">
+            <span class="group-label">Yetkazish usuli</span>
+            <div class="options-inline">
+              <label class="option-item">
+                <input type="radio" name="deliveryMethod" value="Kuryer" checked />
+                <span>Kuryer</span>
+              </label>
+              <label class="option-item">
+                <input type="radio" name="deliveryMethod" value="Pochta" />
+                <span>Pochta</span>
+              </label>
+              <label class="option-item">
+                <input type="radio" name="deliveryMethod" value="O‘zim olib ketaman" />
+                <span>O‘zim olib ketaman</span>
+              </label>
+            </div>
+            <div class="options-inline">
+              <label class="option-item">
+                <input type="checkbox" name="extras" value="Sovg‘a o‘rami" />
+                <span>Sovg‘a o‘rami</span>
+              </label>
+              <label class="option-item">
+                <input type="checkbox" name="extras" value="Xatcho‘p" />
+                <span>Xatcho‘p</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="customerAddress">Manzil</label>
+            <textarea id="customerAddress" class="form-control"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn-reset">Tozalash</button>
+            <button type="submit" class="btn btn-primary">Buyurtma berish</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          <span class="logo-icon">K</span>
+          <span>Kitob olami</span>
+        </a>
+        <p class="footer-tagline">Har bir uyda &ndash; kutubxona.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Aloqa</h4>
+        <ul>
+          <li><a href="tel:+998712005050">+998 71 200 50 50</a></li>
+          <li><a href="mailto:salom@kitobolami.uz">salom@kitobolami.uz</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bizni kuzating</h4>
+        <ul>
+          <li><a href="#">Telegram</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>&copy; 2026 Kitob olami</span>
+        <a href="#top" class="back-to-top">Yuqoriga &uarr;</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Buyurtmangiz muvaffaqiyatli qabul qilindi!</div>
+
+
+    
+</body>
+</html>
